@@ -86,6 +86,18 @@ Executes when the timer reaches time in seconds before 00:00
   :reminders="[5, 10, 20, 60]" />
 ```
 
+### @reset
+
+Type: Function
+
+Default: none
+
+Executes when the timer is cleared to starting time again.
+
+```html
+<v-idle @reset="onreset" />
+```
+
 ### reminders
 
 Type: Array
@@ -150,6 +162,7 @@ Create a timer for 300 seconds (5 minutes) with loop, remind 10 and 15 second be
 <v-idle
   @idle="onidle"
   @remind="onremind"
+  @reset="onreset"
   :loop="true"
   :reminders="[10, 15]"
   :wait="5"
@@ -164,6 +177,9 @@ Create a timer for 300 seconds (5 minutes) with loop, remind 10 and 15 second be
     onremind(time) {
       // alert seconds remaining to 00:00
       alert(time);
+    },
+    onreset() {
+      console.log('user is active again')
     }
   }
 ```
