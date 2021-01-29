@@ -117,6 +117,7 @@ const Vidle = Vue.extend({
       this.start = Date.now()
       this.diff = 0
       this.setTimer()
+      this.$emit('reset')
     },
   },
   beforeDestroy() {
